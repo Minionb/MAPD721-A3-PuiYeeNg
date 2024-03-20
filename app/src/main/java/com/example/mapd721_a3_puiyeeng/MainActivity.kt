@@ -81,8 +81,8 @@ fun AnimationApp() {
         composable("home") {
             HomeScreen(navController)
         }
-        composable("rocket") {
-            RocketAnimationScreen(navController)
+        composable("transition") {
+            TransitionAnimationScreen(navController)
         }
         composable("scale") {
             ScaleAnimationScreen(navController)
@@ -107,7 +107,7 @@ fun HomeScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(
-                    onClick = { navController.navigate("rocket") },
+                    onClick = { navController.navigate("transition") },
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "Transition Animation")
@@ -131,19 +131,17 @@ fun HomeScreen(navController: NavController) {
                     Text(text = "Enter Exit Animation")
                 }
             }
-
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RocketAnimationScreen(navController: NavController) {
+fun TransitionAnimationScreen(navController: NavController) {
     var isRocketLaunched by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Animation Samples") },
+                title = { Text(text = "Transition Animation") },
                 navigationIcon = {
                     IconButton(
                         onClick = { navController.popBackStack() },
@@ -248,7 +246,7 @@ fun ScaleAnimationScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Animation Samples") },
+                title = { Text(text = "Scale Animation") },
                 navigationIcon = {
                     IconButton(
                         onClick = { navController.popBackStack() },
@@ -293,7 +291,7 @@ fun InfiniteAnimationScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Animation Samples") },
+                title = { Text(text = "Infinite Animation") },
                 navigationIcon = {
                     IconButton(
                         onClick = { navController.popBackStack() },
@@ -345,7 +343,7 @@ fun ExitAnimationScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Animation Samples") },
+                title = { Text(text = "Enter Exit Animation") },
                 navigationIcon = {
                     IconButton(
                         onClick = { navController.popBackStack() },
